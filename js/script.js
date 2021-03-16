@@ -14,7 +14,7 @@ nameButton.addEventListener("click", welcomeName);
 // addTodo.addEventListener('click', addTodoList);
 // document.addEventListener('DOMContentLoaded', getTodos);
 window.onload = () => getTodos();
-todoUl.addEventListener('click', deleteTodoList);
+// todoUl.addEventListener('click', deleteTodoList);
 nextButton.addEventListener('click', nextTodos)
 
 // functions
@@ -63,7 +63,11 @@ formSubmit.onsubmit = function(x){
     //creating delete
     let todoDelete= document.createElement('button');
     todoDelete.classList.add('btn-default');
-    todoDelete.innerHTML = '<i class="remove fa fa-trash"></i>';
+    const getRandomId = () => Math.random() + "" + Date.now()
+    const randomId  = getRandomId();
+    todoDelete.innerHTML = `<i id="${randomId}" class="remove fa fa-trash"></i>`;
+    const _trashEl = document.querySelector(`#${randomId}`);
+    _trahEl.addEventListener('clicl', deleteTodoList);
     todos.appendChild(todoDelete);
     todoUl.appendChild(todos);
   }
